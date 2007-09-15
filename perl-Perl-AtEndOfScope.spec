@@ -3,7 +3,7 @@
 Summary:	Perl::AtEndOfScope - run some code when a variable goes out of scope
 Name:		perl-%{real_name}
 Version:	0.01
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{real_name}
