@@ -1,16 +1,18 @@
-%define real_name Perl-AtEndOfScope
+%define upstream_name    Perl-AtEndOfScope
+%define upstream_version 0.03
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Perl::AtEndOfScope - run some code when a variable goes out of scope
-Name:		perl-%{real_name}
-Version:	0.03
-Release:	%mkrel 1
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Perl/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 It's often necessary to do some cleanup at the end of a scope. This
@@ -18,7 +20,7 @@ module creates a Perl object and executes arbitrary code when the object
 goes out of scope.
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -37,4 +39,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Perl/AtEndOfScope.pm
 %{_mandir}/*/*
-
